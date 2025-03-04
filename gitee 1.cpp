@@ -1,11 +1,11 @@
-   /*1.3
+   /*1.3随机生成数字，并用switch输出对应月份
    #include<iostream>
    #include<ctime>
    #include<cstdlib>
    using namespace std;
    int main()
    {
-   srand(time(0));//�������������
+   srand(time(0));//播撒随机数种子
    int randomnum=rand()%12+1;
    switch(randomnum)
    {
@@ -53,7 +53,10 @@
    return 0;
    }
 */
-/*1.4
+
+
+
+/*1.4计算1到n的阶乘倒数的和
 #include<iostream>
 using namespace std;
 # define A 0.00001
@@ -76,7 +79,10 @@ while(1)
 return 0;
 }
 */ 
-/*1.5
+
+
+
+/*1.5读入整数，以升序显示它的所有最小因数，如输入120，输出2，2，2，3，5
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -101,7 +107,10 @@ int main()
 return 0;
 }
 */
-/*2.1
+
+
+
+/*2.1判断两个数组是否相等
 #include<iostream>
 #include<algorithm>
 #include<vector>
@@ -117,21 +126,26 @@ int main()
 	return 0;
 }
 */
-/*1.2
+
+
+/*2.2判断两个string是否相等
 #include<iostream>
 #include<vector>
 #include<string>
 using namespace std;
 int main()
 {
-	vector<string>str1={"hello"};//ע���ʽ 
+	vector<string>str1={"hello"};//注意格式 
 	vector<string>str2={"hello"};
 	if(str1==str2)
 	cout<<"same"<<endl;
 	else cout<<"different"<<endl;
 	return 0;
 }*/
-/*2.3
+
+
+
+/*2.3检测输入的第二个字符串是否是第一个字符串的子串
 #include<iostream>
 using namespace std;
 int main()
@@ -140,13 +154,16 @@ int main()
 	cin>>s1>>s2;
     size_t pos = s1.find(s2);
 	if (pos != string::npos) 
-	{ cout << "�ҵ����ַ�����λ����: " << pos << endl; } 
+	{ cout << "找到子字符串，位置是: " << pos << endl; } 
 	else 
-	{ cout << "δ�ҵ����ַ���" << endl;} 
+	{ cout << "未找到子字符串" << endl;} 
 	return 0; 
  } 
  */
- /*2.4
+ 
+
+
+/*2.4提取字符串中的数字
  #include<iostream>
  #include<string>
  #include<vector>
@@ -166,7 +183,10 @@ int main()
 	return 0;	  
  }
  */
- /*3.1�Լ��ķ��� 
+ 
+
+
+/*3.1将两个有序整型数列合并为一个数列，升序排序
  #include<iostream>
  #include<vector>
  #include<algorithm>
@@ -181,7 +201,7 @@ int main()
  	 vector<int>str3;
  	 for(int i=0;i<size1;++i)
  	 {
- 	 	str3.push_back(str1[i]);//�ַ����Ļ�ֱ����Ӿ����� 
+ 	 	str3.push_back(str1[i]);//字符串的话直接相加就行了 
 	 }
 	 for(int i=0;i<size2;++i)
 	 {
@@ -194,7 +214,10 @@ int main()
 	 return 0;
  }
 */
-/*3.2
+
+
+
+/*3.2将整数转为字符串，注意负数
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -208,7 +231,7 @@ string itoa(int num)
     bool negative=num<0;
     if (num<0) 
         num = -num;
-    // ��λ��ȡ���ֲ�ת��Ϊ�ַ�
+    // 逐位提取数字并转换为字符
     while (num > 0) {
         int digit = num % 10;
         result += static_cast<char>(digit + '0');
@@ -223,38 +246,17 @@ string itoa(int num)
 int main() {
     int num = -123;
 string str = itoa(num);
-cout << "ת�����: " << str << endl;
+cout << "转换结果: " << str << endl;
     return 0;
 } 
 */
-#include<iostream>
-#include<algorithm>
-#include<string>
-using namespace std;
-string itoa(int num)
-{
-	
-	string value;
-	bool negative=num<0;
-	if(num<0)
-	num=-num;
-	while(num>0)
-	 {
-      int digit=num%10;
-	  value+=static_cast<char>(digit+'0');
-	  num=num/10;
-	 }	
-	 if(negative)
-	 value+='-';
-	 reverse(value.begin(),value.end());
-	 return value;
-}
-int main()
-{
-int num= -123;
-string after=itoa(num);
-cout<<after<<endl;
-return 0;
-}
+/*3.3
+设计表示时间的CTime类，要求：
+(1) 有表示时、分、秒的数据成员;
+(2) 正确的初始化操作，检验数据的合法性;
+(3) 有时、分、秒的get和set函数;
+(4) 以24小时格式或12 小时加上午下午的格式输出当前时间。
+编写测试程序。
+
 
 
